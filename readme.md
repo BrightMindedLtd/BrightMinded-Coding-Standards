@@ -1,6 +1,9 @@
 # BrightMinded Coding Standards for PHP_CodeSniffer
 
 * [Introduction](#introduction)
+* [Installation](#installation)
+* [Setup](#setup)
+* [Usage](#usage)
 
 ## Introduction
 
@@ -23,7 +26,7 @@ We recommend installation on a project-by-project basis via the [Composer](https
 
 Note: You will need to add the GitHub repository to your composer repositories config: https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository
 
-## Standalone
+### Standalone
 
 Standalone installation should work with the following steps (untested):
 
