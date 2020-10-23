@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<ruleset name="BrightMinded WordPress">
+
+	<description>Agreed coding style for WordPress projects developed at BrightMinded.</description>
+
+	<!--
+	#############################################################################
+	Use WordPress Extra ruleset as a starting point
+	We follow WordPress extra rules unless:
+
+	 - They conflict with the whitespace conventions we have already established at BrightMinded
+	 - They frequently cause false-positives
+	 - There is an alternative rule which is better suited to our team (these are defined later in the ruleset)
+	#############################################################################
+	-->
+	<rule ref="WordPress-Extra">
+		<!-- BrightMinded projects have less restrictive PHP requirements than WordPress core -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="WordPress.PHP.DisallowShortTernary"/>
+
+		<!-- BrightMinded projects follow different whitespace conventions than WordPress -->
+		<exclude name="Generic.Classes.OpeningBraceSameLine"/>
+		<exclude name="Generic.Files.EndFileNewline.NotFound"/>
+		<exclude name="Generic.Files.LineEndings"/>
+		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
+		<exclude name="PEAR.Functions.FunctionDeclaration"/>
+		<exclude name="Squiz.ControlStructures.ControlSignature"/>
+		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing"/>
+		<exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys"/>
+		<exclude name="WordPress.WhiteSpace.CastStructureSpacing.NoSpaceBeforeOpenParenthesis"/>
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
+		<exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceAfter"/>
+		<exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceBefore"/>
+
+		<!-- WordPress core uses `elseif` whilst BrightMinded use `else if`  -->
+		<exclude name="PSR2.ControlStructures.ElseIfDeclaration"/>
+
+		<!-- We're slightly more permissive about documentation as these are not public-facing projects -->
+		<exclude name="Squiz.Commenting.ClassComment.SpacingAfter"/>
+		<exclude name="Squiz.Commenting.FileComment.Missing"/>
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+		<exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+
+		<!-- Using increment/ decrement operators can harm readability -->
+		<exclude name="Squiz.Operators.IncrementDecrementUsage.Found"/>
+
+		<!-- Array alignment can harm readability for long arrays, or with long keys -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+
+		<!-- We don't follow WordPress's file name conventions -->
+		<exclude name="WordPress.Files.FileName"/>
+
+		<!-- Psuedo constants are written as all caps -->
+		<exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
+		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"/>
+
+		<!-- Yoda conditions should only be used when they don't harm readability -->
+		<exclude name="WordPress.PHP.YodaConditions"/>
+
+		<!-- We don't escape values from trusted users, e.g. CMS content editors -->
+		<exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
+
+		<!-- WordPress sniff can't detect this in a reliable enough way for us -->
+		<exclude name="WordPress.Security.NonceVerification"/>
+
+		<!-- Allow use of file_get_contents in BrightMinded projects -->
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
+
+		<!-- Allow use of json_encode in BrightMinded projects -->
+		<exclude name="WordPress.WP.AlternativeFunctions.json_encode_json_encode"/>
+
+		<!-- There are legitimate uses for needing to mess with global's and we trust BrightMinded devs to be sensible -->
+		<exclude name="WordPress.WP.GlobalVariablesOverride"/>
+
+		<!-- Often we're asked for large posts per page, lets trust BrightMinded devs to be sensible -->
+		<exclude name="WordPress.WP.PostsPerPage"/>
+	</rule>
+
+	<!--
+	#############################################################################
+	Custom BrightMinded rules
+	#############################################################################
+	-->
+
+	<!-- Don't put spaces after open and close bracket of function calls -->
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<properties>
+			<property name="requiredSpacesAfterOpen" value="0"/>
+			<property name="requiredSpacesBeforeClose" value="0"/>
+			<property name="allowMultipleArguments" value="true"/>
+		</properties>
+		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+	</rule>
+
+	<!-- We never want to allow assingment in conditions as its too easy to miss during code-review -->
+	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition">
+		<type>error</type>
+	</rule>
+
+	<!-- Follow WordPress docs standards, but be slightly less restrictive -->
+	<rule ref="WordPress-Docs">
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+		<exclude name="Squiz.Commenting.InlineComment.NotCapital.InvalidEndChar"/>
+	</rule>
+
+	<!-- Ensure opening brace of a function is on the line after the function declaration -->
+	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"></rule>
+
+	<!-- BrightMinded use `else if` over `elseif` which is prefered by Wordpress -->
+	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"></rule>
+
+	<!-- Don't put a space after a not (!) condition -->
+	<rule ref="Generic.Formatting.SpaceAfterNot">
+		<properties>
+			<property name="spacing" value="0"/>
+		</properties>
+	</rule>
+
+</ruleset>
