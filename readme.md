@@ -22,7 +22,7 @@ The BrightMinded Coding Standards are designed to run on any PHP version which s
 We recommend installation on a project-by-project basis via the [Composer](https://getcomposer.org/) dependency manager. In your projects `composer.json` file require:
 
 	[phpcodesniffer-composer-installer](https://github.com/DealerDirect/phpcodesniffer-composer-installer):"^0.7"
-	BrightMindedLtd/BrightMinded-Coding-Standards:master
+	BrightMindedLtd/BrightMinded-Coding-Standards:dev-main
 
 Note: You will need to add the GitHub repository to your composer repositories config: https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository
 
