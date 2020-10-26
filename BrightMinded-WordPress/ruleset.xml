@@ -94,6 +94,7 @@
 		</properties>
 		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
 		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+		<exclude name="PEAR.Functions.FunctionCallSignature.FunctionCallSignature"/>
 	</rule>
 
 	<!-- We never want to allow assingment in conditions as its too easy to miss during code-review -->
