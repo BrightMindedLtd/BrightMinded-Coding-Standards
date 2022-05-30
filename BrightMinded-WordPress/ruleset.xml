@@ -124,5 +124,10 @@
 			<property name="spacing" value="0"/>
 		</properties>
 	</rule>
+	
+	<!-- Each array item in a multi-line array declaration must end in a comma -->
+	<rule ref="WordPress.Arrays.CommaAfterArrayItem.NoComma">
+		<type>warning</type>
+	</rule>
 
 </ruleset>
