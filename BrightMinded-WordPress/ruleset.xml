@@ -134,6 +134,4 @@
 	<rule ref="WordPress.Arrays.CommaAfterArrayItem.NoComma">
 		<type>warning</type>
 	</rule>
-	
-	
 </ruleset>
