@@ -73,6 +73,11 @@
 
 		<!-- Allow use of json_encode in BrightMinded projects -->
 		<exclude name="WordPress.WP.AlternativeFunctions.json_encode_json_encode"/>
+		
+		<!-- Allow usage of filesystem, e.g. for reading CSVs -->
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_fopen"/>
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_fclose"/>
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents"/>
 
 		<!-- There are legitimate uses for needing to mess with global's and we trust BrightMinded devs to be sensible -->
 		<exclude name="WordPress.WP.GlobalVariablesOverride"/>
@@ -129,5 +134,6 @@
 	<rule ref="WordPress.Arrays.CommaAfterArrayItem.NoComma">
 		<type>warning</type>
 	</rule>
-
+	
+	
 </ruleset>
