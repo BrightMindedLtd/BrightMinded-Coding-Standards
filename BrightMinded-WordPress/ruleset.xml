@@ -134,4 +134,11 @@
 	<rule ref="WordPress.Arrays.CommaAfterArrayItem.NoComma">
 		<type>warning</type>
 	</rule>
+
+	<!-- Allow use of {@inheritdoc} -->
+	<rule ref="Squiz.Commenting.FunctionComment">
+        <properties>
+            <property name="skipIfInheritdoc" value="true"/>
+        </properties>
+    </rule>
 </ruleset>
