@@ -28,6 +28,7 @@
 		<exclude name="PEAR.Functions.FunctionDeclaration"/>
 		<exclude name="Squiz.ControlStructures.ControlSignature"/>
 		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
 		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing"/>
 		<exclude name="NormalizedArrays.Arrays.ArrayBraceSpacing"/>
 		<exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys"/>
