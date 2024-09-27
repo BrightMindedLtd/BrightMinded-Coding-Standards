@@ -19,11 +19,9 @@
 		<exclude name="Universal.Operators.DisallowShortTernary"/>
 
 		<!-- BrightMinded projects follow different whitespace conventions than WordPress -->
-		<exclude name="Generic.Classes.OpeningBraceSameLine"/>
-		<exclude name="GenPSR2.Files.EndFileNewline.NotFound"/>
+    <exclude name="GenPSR2.Files.EndFileNewline.NotFound"/>
 		<exclude name="Generic.Files.LineEndings"/>
 		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
-		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
 		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
 		<exclude name="PEAR.Functions.FunctionDeclaration"/>
 		<exclude name="Squiz.ControlStructures.ControlSignature"/>
@@ -121,9 +119,6 @@
 		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
 		<exclude name="Squiz.Commenting.InlineComment.NotCapital.InvalidEndChar"/>
 	</rule>
-
-	<!-- Ensure opening brace of a function is on the line after the function declaration -->
-	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"></rule>
 
 	<!-- BrightMinded use `else if` over `elseif` which is prefered by Wordpress -->
 	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"></rule>
