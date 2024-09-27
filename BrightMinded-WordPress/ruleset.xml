@@ -15,18 +15,20 @@
 	-->
 	<rule ref="WordPress-Extra">
 		<!-- BrightMinded projects have less restrictive PHP requirements than WordPress core -->
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
-		<exclude name="WordPress.PHP.DisallowShortTernary"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="Universal.Operators.DisallowShortTernary"/>
 
 		<!-- BrightMinded projects follow different whitespace conventions than WordPress -->
-		<exclude name="Generic.Files.EndFileNewline.NotFound"/>
+    <exclude name="GenPSR2.Files.EndFileNewline.NotFound"/>
 		<exclude name="Generic.Files.LineEndings"/>
 		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
 		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
 		<exclude name="PEAR.Functions.FunctionDeclaration"/>
 		<exclude name="Squiz.ControlStructures.ControlSignature"/>
 		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
 		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing"/>
+		<exclude name="NormalizedArrays.Arrays.ArrayBraceSpacing"/>
 		<exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys"/>
 		<exclude name="WordPress.WhiteSpace.CastStructureSpacing.NoSpaceBeforeOpenParenthesis"/>
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
@@ -103,7 +105,10 @@
 	</rule>
 
 	<!-- We never want to allow assingment in conditions as its too easy to miss during code-review -->
-	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition">
+	<rule ref="Generic.CodeAnalysis.AssignmentInCondition">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.CodeAnalysis.AssignmentInTernaryCondition">
 		<type>error</type>
 	</rule>
 
@@ -126,7 +131,17 @@
 	</rule>
 	
 	<!-- Each array item in a multi-line array declaration must end in a comma -->
-	<rule ref="WordPress.Arrays.CommaAfterArrayItem.NoComma">
+	<rule ref="NormalizedArrays.Arrays.CommaAfterLast">
 		<type>warning</type>
 	</rule>
+	<rule ref="Universal.WhiteSpace.CommaSpacing">
+		<type>warning</type>
+	</rule>
+
+	<!-- Allow use of {@inheritdoc} -->
+	<rule ref="Squiz.Commenting.FunctionComment">
+        <properties>
+            <property name="skipIfInheritdoc" value="true"/>
+        </properties>
+    </rule>
 </ruleset>
